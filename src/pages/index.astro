@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
 ---
 
 <Layout>
@@ -7,6 +11,11 @@ import Layout from '../layouts/Layout.astro';
 		<h1>Pages CMS Template Project</h1>
 		<p>Matthew Lowe</p>
 	</div>
+	{posts.map((post) => (
+		<div class="post">
+			<h2><a href={`/posts/${post.id}`}>{post.data.title}</a></h2>
+		</div>
+	))}
 </Layout>
 
 <style>
@@ -20,6 +29,16 @@ import Layout from '../layouts/Layout.astro';
 
 h1 {
 	margin: 0;
+}
+
+.post a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.post a:hover,
+.post a:focus {
+	text-decoration: underline;
 }
 
 @media screen and (width > 768px) {
