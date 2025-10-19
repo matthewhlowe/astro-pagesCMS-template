@@ -1,3 +1,12 @@
 media:
   input: public/media
-  output: public/media
+  output: /media
+content:
+  name: posts
+  label: Posts
+  type: collection
+  path: content/posts
+  fields:
+  - { name: title, label: Title, type: string, required: true }
+  - { name: body, label: Body, type: rich-text, required: true }
+  
