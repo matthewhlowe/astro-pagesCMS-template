@@ -1,7 +1,7 @@
 ---
 title: My First Post
 ---
-# Welcome to my blog
+## Welcome to my blog
 
 This is the test post for my blog template.
 
