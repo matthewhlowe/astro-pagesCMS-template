@@ -16,6 +16,27 @@ const { title = "Pages CMS Template Site" } = Astro.props;
         <link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
+		<div class="navbar">
+			<a href="/">Home</a>
+		</div>
 		<slot />
 	</body>
 </html>
+
+<style>
+.navbar {
+	background-color: #2274A5;
+	padding: 16px;
+}
+
+.navbar a {
+	color: #FCF9EE;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+	text-decoration: underline;
+}
+</style>

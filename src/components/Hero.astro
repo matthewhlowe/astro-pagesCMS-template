@@ -1,0 +1,33 @@
+---
+interface Props {
+    title: string;
+    subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="hero">
+    <h1>{ title }</h1>
+    { subtitle && <p>{ subtitle }</p> }
+</div>
+
+<style>
+.hero {
+	background-color: #2274A5;
+	color: #FCF9EE;
+	height: 300px;
+	padding-top: 100px;
+	padding-left: 16px;
+}
+
+h1 {
+	margin: 0;
+}
+
+@media screen and (width > 768px) {
+  .hero {
+	padding-left: 50px;
+  }
+}
+</style>

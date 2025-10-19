@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 
 import { getCollection } from 'astro:content';
 
@@ -7,30 +8,17 @@ const posts = await getCollection('posts');
 ---
 
 <Layout>
-	<div class="hero">
-		<h1>Pages CMS Template Project</h1>
-		<p>Matthew Lowe</p>
+	<Hero title="Pages CMS Template Project" subtitle="Matthew Lowe" />
+	<div class="content">
+		{posts.map((post) => (
+			<div class="post">
+				<h2><a href={`/posts/${post.id}`}>{post.data.title}</a></h2>
+			</div>
+		))}
 	</div>
-	{posts.map((post) => (
-		<div class="post">
-			<h2><a href={`/posts/${post.id}`}>{post.data.title}</a></h2>
-		</div>
-	))}
 </Layout>
 
 <style>
-.hero {
-	background-color: #2274A5;
-	color: #FCF9EE;
-	height: 300px;
-	padding-top: 100px;
-	padding-left: 16px;
-}
-
-h1 {
-	margin: 0;
-}
-
 .post a {
 	text-decoration: none;
 	color: inherit;
@@ -39,11 +27,5 @@ h1 {
 .post a:hover,
 .post a:focus {
 	text-decoration: underline;
-}
-
-@media screen and (width > 768px) {
-  .hero {
-	padding-left: 50px;
-  }
 }
 </style>
