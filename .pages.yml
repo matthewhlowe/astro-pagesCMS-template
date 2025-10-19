@@ -6,7 +6,7 @@ content:
     label: Posts
     type: collection
     path: content/posts
-    filename: '{title}.md'
+    filename: '{fields.title}.md'
     fields:
     - { name: title, label: Title, type: string, required: true }
     - { name: body, label: Body, type: rich-text, required: true }
