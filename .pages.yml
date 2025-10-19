@@ -9,4 +9,5 @@ content:
     fields:
     - { name: title, label: Title, type: string, required: true }
     - { name: body, label: Body, type: rich-text, required: true }
+    - { name: slug, type: string, hidden: true, default: "{{title | slugify}}" }
   
